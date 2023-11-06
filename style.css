@@ -1,0 +1,64 @@
+body {
+    user-select:none
+}
+section {
+    width: 400px;
+    height: 460px;
+    margin: auto;
+    border: 2px solid black;
+    background-color: rgb(48, 46, 46);
+    border-radius: 5px;
+}
+#impressão {
+    border: 2px solid rgb(0, 0, 0);
+    height: 130px;
+    line-height: 130px;
+}
+.linhas {
+    height: 77.5px;
+}
+.botoes, #igual, #delete{
+    display: inline-block;
+    background-color: rgb(84, 90, 94);
+    width: 90px;
+    height: 65px;
+    border-radius: 7px;
+    margin-left: 4.8px;
+    margin-top: 9px;
+    color: white;
+    font-family: arial, sans-serif;
+    text-align: center;
+    line-height: 65px;
+    cursor: context-menu;
+    font-weight: bold;
+    font-size: 18px;
+}
+.botoes:hover {
+    background-color: rgb(103, 110, 114);
+}
+#igual:hover {
+    background-color: rgb(103, 110, 114);
+}
+#delete:hover {
+    background-color: rgb(103, 110, 114);
+}
+
+
+#container {
+    width: 396px;
+    height: 326px;
+    border: 2px solid rgb(0, 0, 0);
+    border-end-end-radius: 5px;
+    border-end-start-radius: 5px;
+}
+#calculo {
+    margin-left: 16px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    font-family: arial;
+}
+
+#calculo:hover {
+    color: rgb(252, 252, 15);
+}
