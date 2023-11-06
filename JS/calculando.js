@@ -9,10 +9,10 @@ divIgual.addEventListener("click", e => {
         }
     } 
     const arraySpanCorrigido = corrigindoArray(arraySpan);
-    console.log(arraySpanCorrigido);
-    const arrayCalculoPrecedencia = calcularVetor(arraySpanCorrigido, ["x", "÷"])
-    const vetorCalculado = calcularVetor(arrayCalculoPrecedencia, ["+", "-"]);
-    console.log(vetorCalculado)
+    const arrayCalculoPrecedencia = calcularArray1(arraySpanCorrigido, ["x", "÷"])
+    console.log(arrayCalculoPrecedencia);
+    const resultadoConta = calcularArray2(arrayCalculoPrecedencia);
+    spanCalculo.innerHTML = resultadoConta;
 })
 
 
@@ -50,7 +50,7 @@ const corrigindoArray = array => {
 }
 
 
-const calcularVetor = (array, operadores) => {
+const calcularArray1 = (array, operadores) => {
     for (let i = 0; i < array.length; i++) {
         if (array[i] == operadores[0] || array[i] == operadores[1]) {
             let resultado = 0;
@@ -73,13 +73,34 @@ const calcularVetor = (array, operadores) => {
             }
         }  
     }
-    console.log(array)
     const arrayLimpo = new Array();
     for (let i = 0; i < array.length; i++) {
         if (array[i] !== 'EXC') {
             arrayLimpo.push(array[i]);
         }
     }
-    console.log(arrayLimpo)
-    return array;
+    return arrayLimpo;
+}
+
+
+const calcularArray2 = array => {
+	let i = 0;
+	while (i < array.length) {
+		if (array[i] == '+' || array[i] == "-") {
+			let resultado = 0;
+			switch(array[i]) {
+				case '+':
+				    resultado = array[i-1] + array[i+1];
+				    break;
+				case "-":
+				    resultado = array [i-1] - array[i+1];
+			}
+			array[i+1] = resultado;
+			for (let c = i-1; c <= i; c++) {
+				array[c] = 'EXC';
+			}
+		}
+		i++;
+	}
+	return array[array.length-1];
 }
